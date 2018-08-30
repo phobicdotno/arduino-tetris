@@ -12,7 +12,7 @@
 
 #include <RGBmatrixPanel.h>
 
-#define CLK 11  // Mega
+#define CLK 8
 #define OE  9
 #define LAT 10
 #define A   A0

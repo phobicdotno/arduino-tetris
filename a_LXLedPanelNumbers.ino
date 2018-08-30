@@ -41,24 +41,24 @@ void LXLedPanelNumbers_write ( const unsigned long number = 0, const byte where 
 
   switch (where) {
     case SCORE_LEVEL:
-      LXLedPanelNumbers_number(digit_3, 20, 11+33, color);
-      LXLedPanelNumbers_number(digit_2, 24, 11+33, color);
-      LXLedPanelNumbers_number(digit_1, 28, 11+33, color);
+      LXLedPanelNumbers_number(digit_3, 20, 11, color);
+      LXLedPanelNumbers_number(digit_2, 24, 11, color);
+      LXLedPanelNumbers_number(digit_1, 28, 11, color);
       break;
 
     case SCORE_LINES:
-      LXLedPanelNumbers_number(digit_3, 20, 18+33, color);
-      LXLedPanelNumbers_number(digit_2, 24, 18+33, color);
-      LXLedPanelNumbers_number(digit_1, 28, 18+33, color);
+      LXLedPanelNumbers_number(digit_3, 20, 18, color);
+      LXLedPanelNumbers_number(digit_2, 24, 18, color);
+      LXLedPanelNumbers_number(digit_1, 28, 18, color);
       break;
 
     case SCORE_POINTS:
-      LXLedPanelNumbers_number(digit_6,  8, 25+33, color);
-      LXLedPanelNumbers_number(digit_5, 12, 25+33, color);
-      LXLedPanelNumbers_number(digit_4, 16, 25+33, color);
-      LXLedPanelNumbers_number(digit_3, 20, 25+33, color);
-      LXLedPanelNumbers_number(digit_2, 24, 25+33, color);
-      LXLedPanelNumbers_number(digit_1, 28, 25+33, color);
+      LXLedPanelNumbers_number(digit_6,  8, 25, color);
+      LXLedPanelNumbers_number(digit_5, 12, 25, color);
+      LXLedPanelNumbers_number(digit_4, 16, 25, color);
+      LXLedPanelNumbers_number(digit_3, 20, 25, color);
+      LXLedPanelNumbers_number(digit_2, 24, 25, color);
+      LXLedPanelNumbers_number(digit_1, 28, 25, color);
       break;
   }
 }
