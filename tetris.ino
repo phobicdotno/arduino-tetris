@@ -22,7 +22,7 @@
 
 #define SWITCH A5
 
-RGBmatrixPanel matrix(A, B, C, D, CLK, LAT, OE, false);
+RGBmatrixPanel matrix(A, B, C, D, CLK, LAT, OE, false, 64);
 
 // colors
 #define BLACK  matrix.Color333(0, 0, 0)
