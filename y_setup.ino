@@ -19,24 +19,25 @@ void setup() {
   matrix.drawLine(25, 4, 25, 7, GRAY);
 
   // lv (= level)
-  matrix.drawLine(14, 10, 14, 15, GRAY);
-  matrix.drawLine(16, 12, 16, 15, GRAY);
-  matrix.drawLine(18, 12, 18, 13, GRAY);
-  matrix.drawPixel(17, 14, GRAY);
+  matrix.drawLine(14, 10+33, 14, 15+33, GRAY);
+  matrix.drawLine(16, 12+33, 16, 15+33, GRAY);
+  matrix.drawLine(18, 12+33, 18, 13+33, GRAY);
+  matrix.drawPixel(17, 14+33, GRAY);
 
   // ln (= lines)
-  matrix.drawLine(14, 17, 14, 22, GRAY);
-  matrix.drawLine(16, 19, 16, 22, GRAY);
-  matrix.drawLine(18, 20, 18, 22, GRAY);
-  matrix.drawPixel(17, 19, GRAY);
+  matrix.drawLine(14, 17+33, 14, 22+33, GRAY);
+  matrix.drawLine(16, 19+33, 16, 22+33, GRAY);
+  matrix.drawLine(18, 20+33, 18, 22+33, GRAY);
+  matrix.drawPixel(17, 19+33, GRAY);
 
   // pt (= points)
-  matrix.drawLine(1, 25, 1, 29, GRAY);
-  matrix.drawPixel(2, 25, GRAY);
-  matrix.drawLine(2, 27, 3, 26, GRAY);
-  matrix.drawLine(5, 25, 5, 28, GRAY);
-  matrix.drawPixel(6, 26, GRAY);
-  matrix.drawPixel(6, 29, GRAY);
+  matrix.drawLine(1, 25+33, 1, 29+33, GRAY);
+  matrix.drawPixel(2, 25+33, GRAY);
+  matrix.drawLine(2, 27+33, 3, 26+33, GRAY);
+  matrix.drawLine(5, 25+33, 5, 28+33, GRAY);
+  matrix.drawPixel(6, 26+33, GRAY);
+  matrix.drawPixel(6, 29+33, GRAY);
+
 
   // initialize scores etc.
   reset();
