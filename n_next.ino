@@ -17,7 +17,7 @@ void handle_next() {
 void add_to_bucket() {
   uint16_t tet = pgm_read_word(TETROMINOES + 4*tetr_type + tetr_rotation);
 
-  for ( byte i = 0; i < 16; i++ ) {
+  for ( byte i = 0; i < 33; i++ ) {
     if ( bitRead(tet, i) ) {
       byte row = floor(i / 4);
       byte col = i % 4;
@@ -56,7 +56,7 @@ void throw_next() {
 void check_rows() {
   byte completed = 0;
 
-  for ( byte i = 0; i < 17; i++ ) {
+  for ( byte i = 0; i < 34; i++ ) {
     if ( is_complete_row(i) ) {
       completed++;
 
@@ -135,7 +135,7 @@ void check_rows() {
 
   // paint the new bucket
 
-  for ( byte row = 0; row < 17; row++ ) {
+  for ( byte row = 0; row < 34; row++ ) {
     for ( byte col = 0; col < 10; col++ ) {
       matrix.drawPixel(col + BUCKET_OFFS_X, row + BUCKET_OFFS_Y, bucket[row*10+col]);
     }
@@ -156,4 +156,3 @@ bool is_complete_row ( byte row ) {
     bucket[row*10+9] > 0
   );
 }
-

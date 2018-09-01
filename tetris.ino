@@ -48,7 +48,7 @@ RGBmatrixPanel matrix(A, B, C, D, CLK, LAT, OE, false,64);
 #define BUCKET_OFFS_X 2
 #define BUCKET_OFFS_Y 5
 
-uint16_t bucket[170];
+uint16_t bucket[340];
 
 unsigned long last_interaction =    0; // when was the last button pressed? 
 unsigned long next_tick        =    0; // when will the next automatic step happen?

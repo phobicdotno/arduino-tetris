@@ -14,11 +14,11 @@ void reset() {
   tick_length = 1000;
 
   // empty bucket
-  matrix.fillRect(2, 5, 10, 17, BLACK);
+  matrix.fillRect(2, 5, 10, 34, BLACK);
 
   // note: the top of the bucket corresponds to the floor on the panel
   // so it's upside down
-  for ( byte i = 0; i < 17; i++ )
+  for ( byte i = 0; i < 34; i++ )
     for ( byte j = 0; j < 10; j++ )
       bucket[i*10+j] = BLACK;
 
