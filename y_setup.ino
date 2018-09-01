@@ -8,15 +8,15 @@ void setup() {
   matrix.fillScreen(BLACK);
 
   // bucket
-  matrix.drawLine(1, 5, 1, 22, GRAY);
-  matrix.drawLine(12, 5, 12, 22, GRAY);
-  matrix.drawLine(2, 22, 11, 22, GRAY);
+  matrix.drawLine(1, 5, 1, 22+17, GRAY);    // made the visual bucket longer
+  matrix.drawLine(12, 5, 12, 22+17, GRAY);
+  matrix.drawLine(2, 22+17, 11, 22+17, GRAY);
 
   // preview box for next item
-  matrix.drawLine(20, 3, 25, 3, GRAY);
-  matrix.drawLine(20, 8, 25, 8, GRAY);
-  matrix.drawLine(20, 4, 20, 7, GRAY);
-  matrix.drawLine(25, 4, 25, 7, GRAY);
+  matrix.drawLine(1, 43, 6, 43, GRAY);  // Top _
+  matrix.drawLine(1, 48, 6, 48, GRAY);  // Bottom _
+  matrix.drawLine(1, 44, 1, 47, GRAY);  // Left |
+  matrix.drawLine(6, 44, 6, 47, GRAY);  // Right |
 
   // lv (= level)
   matrix.drawLine(14, 10+33, 14, 15+33, GRAY);

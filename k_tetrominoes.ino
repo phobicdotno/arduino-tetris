@@ -55,7 +55,7 @@ void get_next_tetromino() {
  * shows the next tetromino in the preview box
  */
 void preview_tetromino() {
-  matrix.fillRect(21, 4, 4, 4, BLACK);
+  matrix.fillRect(2, 44, 4, 4, BLACK);    // Clear box
 
   uint16_t tet = pgm_read_word(TETROMINOES + 4*next_tetr_type );
 
@@ -66,7 +66,7 @@ void preview_tetromino() {
     // use offsets for the preview box
     // also put every brick a row further down
     if ( bitRead(tet, i) )
-      matrix.drawPixel(col + 21, row + 5, next_tetr_color);
+      matrix.drawPixel(col + 2, row + 44, next_tetr_color);
   }
 }
 
@@ -148,4 +148,3 @@ bool move_tetromino_down() {
 
   return true;
 }
-
