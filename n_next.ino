@@ -15,7 +15,7 @@ void handle_next() {
  * add the current tetromino to the bucket 
  */
 void add_to_bucket() {
-  uint16_t tet = pgm_read_word(TETROMINOES + 8*tetr_type + tetr_rotation);
+  uint16_t tet = pgm_read_word(TETROMINOES + 4*tetr_type + tetr_rotation);
 
   for ( byte i = 0; i < 34; i++ ) {
     if ( bitRead(tet, i) ) {
@@ -79,10 +79,14 @@ void check_rows() {
       // shift the bucket
 
       for ( int y = i + completed - 1; y >= 0; y-- ) {
-        if ( y - completed < 0 )
-          bucket[y] = 0b100000000001;
-        else
-          bucket[y] = bucket[y - completed];
+        if ( y - completed < 0 ) {
+          for ( byte j = 0; j < 28; j++ )
+            bucket[y*28+j] = BLACK;
+        }
+        else {
+          for ( byte j = 0; j < 28; j++ )
+            bucket[y*28+j] = bucket[(y - completed)*28+j];
+        }
       }
 
       break;
@@ -132,12 +136,23 @@ void check_rows() {
   // paint the new bucket
 
   for ( byte row = 0; row < 35; row++ ) {
-    for ( byte col = 1; col < 11; col++ ) {
-      // note: Arduino Uno's sparse memory doesn't have enough space to also remember colors
-      if ( bitRead(bucket[row], col) )
-        matrix.drawPixel(col - 1 + BUCKET_OFFS_X, row + BUCKET_OFFS_Y, CYAN);
-      else
-        matrix.drawPixel(col - 1 + BUCKET_OFFS_X, row + BUCKET_OFFS_Y, BLACK);
+    for ( byte col = 0; col < 28; col++ ) {
+      matrix.drawPixel(col + BUCKET_OFFS_X, row + BUCKET_OFFS_Y, bucket[row*10+col]);
     }
   }
+} 
+bool is_complete_row ( byte row ) {
+  return ( 
+    bucket[row*28]   > 0 &&
+    bucket[row*28+1] > 0 &&
+    bucket[row*28+2] > 0 &&
+    bucket[row*28+3] > 0 &&
+    bucket[row*28+4] > 0 &&
+    bucket[row*28+5] > 0 &&
+    bucket[row*28+6] > 0 &&
+    bucket[row*28+7] > 0 &&
+    bucket[row*28+8] > 0 &&
+    bucket[row*28+9] > 0
+  );
+
 }

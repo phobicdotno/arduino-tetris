@@ -14,7 +14,7 @@ void reset() {
   tick_length = 1000;
 
   // empty bucket
-  matrix.fillRect(2, 5, 10, 35, BLACK);
+  matrix.fillRect(2, 5, 28, 35, BLACK);
 
   // note: the top of the bucket corresponds to the floor on the panel
   // so it's upside down
