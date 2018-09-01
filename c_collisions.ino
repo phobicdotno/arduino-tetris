@@ -32,13 +32,13 @@ bool check_collision ( const byte dir = 0 ) {
   // now check every set bit in the tetromino container
   // if it collides with a set bit in the bucket
 
-  for ( byte i = 0; i < 16; i++ ) {
+  for ( byte i = 0; i < 34; i++ ) {
     if ( bitRead(temp_tet, i) ) {
       byte row = floor(i / 4);
       byte col = i % 4;
 
       // the floor is not included in the bucket, so check it here
-      if ( row+temp_tetr_offsY > 16 )
+      if ( row+temp_tetr_offsY > 34 )
         return true;
 
       // temp_tetr_offsX is offset by another 1 because the walls of the bucket are included
@@ -49,4 +49,3 @@ bool check_collision ( const byte dir = 0 ) {
 
   return false;
 }
-

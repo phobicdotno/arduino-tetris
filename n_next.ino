@@ -15,9 +15,9 @@ void handle_next() {
  * add the current tetromino to the bucket 
  */
 void add_to_bucket() {
-  uint16_t tet = pgm_read_word(TETROMINOES + 4*tetr_type + tetr_rotation);
+  uint16_t tet = pgm_read_word(TETROMINOES + 8*tetr_type + tetr_rotation);
 
-  for ( byte i = 0; i < 16; i++ ) {
+  for ( byte i = 0; i < 34; i++ ) {
     if ( bitRead(tet, i) ) {
       byte row = floor(i / 4);
       byte col = i % 4;
@@ -56,7 +56,7 @@ void throw_next() {
 void check_rows() {
   byte completed = 0;
 
-  for ( byte i = 0; i < 17; i++ ) {
+  for ( byte i = 0; i < 35; i++ ) {
     if ( bucket[i] == 0b111111111111 ) {
       completed++;
 
@@ -131,7 +131,7 @@ void check_rows() {
 
   // paint the new bucket
 
-  for ( byte row = 0; row < 17; row++ ) {
+  for ( byte row = 0; row < 35; row++ ) {
     for ( byte col = 1; col < 11; col++ ) {
       // note: Arduino Uno's sparse memory doesn't have enough space to also remember colors
       if ( bitRead(bucket[row], col) )

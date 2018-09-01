@@ -14,11 +14,11 @@ void reset() {
   tick_length = 1000;
 
   // empty bucket
-  matrix.fillRect(2, 5, 10, 17, BLACK);
+  matrix.fillRect(2, 5, 10, 35, BLACK);
 
   // note: the top of the bucket corresponds to the floor on the panel
   // so it's upside down
-  for ( byte i = 0; i < 17; i++ )
+  for ( byte i = 0; i < 35; i++ )
     bucket[i] = 0b100000000001;
 
   // reset scores
