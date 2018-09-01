@@ -55,11 +55,11 @@ void get_next_tetromino() {
  * shows the next tetromino in the preview box
  */
 void preview_tetromino() {
-  matrix.fillRect(47, 3, 8, 8, BLACK);
+  matrix.fillRect(46, 3, 8, 8, BLACK);
 
   uint16_t tet = pgm_read_word(TETROMINOES + 4*next_tetr_type );
 
-  for ( byte i = 0; i < 35; i++ ) {
+  for ( byte i = 0; i < 16; i++ ) {
     byte row = floor(i / 4);
     byte col = i % 4;
 

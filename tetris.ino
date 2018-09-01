@@ -20,8 +20,7 @@
 #define C   A2
 #define D   A3
 
-#define LEFT_RIGHT A6
-#define DOWN_ROTATE A7
+#define SWITCH A5
 
 RGBmatrixPanel matrix(A, B, C, D, CLK, LAT, OE, false, 64);
 
@@ -51,7 +50,7 @@ RGBmatrixPanel matrix(A, B, C, D, CLK, LAT, OE, false, 64);
 #define BUCKET_OFFS_X 2
 #define BUCKET_OFFS_Y 5
 
-int bucket[980];   // 28 cols * 35 rows
+int bucket[35];
 
 unsigned long last_interaction =    0; // when was the last button pressed? 
 unsigned long next_tick        =    0; // when will the next automatic step happen?
@@ -77,7 +76,10 @@ bool key_pressed = false;
  * set bits are the parts where a brick is solid
  * the four quartets represent the four directions a tetromino can rotate
  */
-const PROGMEM uint16_t TETROMINOES[28] = {
+const PROGMEM uint64_t TETROMINOES[32] = {
+
+// dårlig swastica
+  0b1101011111101011, 0b1101011111101011, 0b1101011111101011, 0b1101011111101011,
   
   // X
   // X

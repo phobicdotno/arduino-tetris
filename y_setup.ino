@@ -1,6 +1,5 @@
 void setup() {
-  pinMode(LEFT_RIGHT, INPUT);
-  pinMode(DOWN_ROTATE, INPUT);
+  pinMode(SWITCH, INPUT);
   Serial.begin(9600);
 
   matrix.setRotation(3);  // Rotate for portrait-mode 64x32
