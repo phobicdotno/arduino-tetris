@@ -1,5 +1,5 @@
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(19200);
   matrix.setRotation(3);  // Rotate for portrait-mode 64x32
   matrix.begin();
 
@@ -7,10 +7,10 @@ void setup() {
 
   matrix.fillScreen(BLACK);
 
-  // bucket
-  matrix.drawLine(1, 5, 1, 22+17, GRAY);    // made the visual bucket longer
-  matrix.drawLine(12, 5, 12, 22+17, GRAY);
-  matrix.drawLine(2, 22+17, 11, 22+17, GRAY);
+  // Visual bucket
+  matrix.drawLine(1, BUCKET_OFFS_Y, 1, BUCKET_DEPTH+BUCKET_OFFS_Y, GRAY);                            // Left |
+  matrix.drawLine(30, BUCKET_OFFS_Y, 30, BUCKET_DEPTH+BUCKET_OFFS_Y, GRAY);                          // Right |
+  matrix.drawLine(BUCKET_OFFS_X, BUCKET_DEPTH+BUCKET_OFFS_Y, 29, BUCKET_DEPTH+BUCKET_OFFS_Y, GRAY);  // Bottom _
 
   // preview box for next item
   matrix.drawLine(1, 43, 6, 43, GRAY);  // Top _

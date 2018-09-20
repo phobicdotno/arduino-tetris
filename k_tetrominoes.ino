@@ -39,6 +39,9 @@ void get_next_tetromino() {
 
     case 13:
     case 14:
+      next_tetr_type = 7;
+      next_tetr_color = BLUE;
+      break;
     case 15:
       next_tetr_type = 5;
       next_tetr_color = ORANGE;

@@ -20,7 +20,7 @@
 #define C   A2
 #define D   A3
 
-RGBmatrixPanel matrix(A, B, C, D, CLK, LAT, OE, false,64);
+RGBmatrixPanel matrix(A, B, C, D, CLK, LAT, OE, false, 64);
 
 // colors
 #define BLACK  matrix.Color333(0, 0, 0)
@@ -46,9 +46,13 @@ RGBmatrixPanel matrix(A, B, C, D, CLK, LAT, OE, false,64);
 
 // bucket offset on the panel
 #define BUCKET_OFFS_X 2
-#define BUCKET_OFFS_Y 5
+#define BUCKET_OFFS_Y 7
 
-uint16_t bucket[340];
+// Bucket dimensions
+#define BUCKET_DEPTH 34
+#define BUCKET_WIDTH 28
+
+uint16_t bucket[952]; // Size of bucket 34*28
 
 unsigned long last_interaction =    0; // when was the last button pressed? 
 unsigned long next_tick        =    0; // when will the next automatic step happen?
@@ -74,12 +78,19 @@ bool key_pressed = false;
  * set bits are the parts where a brick is solid
  * the four quartets represent the four directions a tetromino can rotate
  */
-const PROGMEM uint16_t TETROMINOES[28] = {
+const PROGMEM uint16_t TETROMINOES[32] = {
   // X
   // X
   // X
   // X
   0b0000000011110000, 0b0100010001000100, 0b0000000011110000, 0b0100010001000100,
+
+  // TESTING add of Tetrominoes
+  // XXXX
+  // XXXX
+  // XXXX
+  // XXXX
+  0b1111111111111111, 0b1111100110011111, 0b1010101010101010, 0b0101010101010101,
 
   // XX
   // XX
