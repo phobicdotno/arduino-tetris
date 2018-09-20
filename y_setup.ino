@@ -38,7 +38,9 @@ void setup() {
   matrix.drawPixel(6, 26+33, GRAY);
   matrix.drawPixel(6, 29+33, GRAY);
 
-
+  // phobic logo
+  matrix.drawBitmap(6, 0, phobic_bitmap, 24, 8, matrix.Color333(7,3,1));
+  
   // initialize scores etc.
   reset();
 

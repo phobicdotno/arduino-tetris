@@ -17,12 +17,12 @@ void handle_next() {
 void add_to_bucket() {
   uint16_t tet = pgm_read_word(TETROMINOES + 4*tetr_type + tetr_rotation);
 
-  for ( byte i = 0; i < 33; i++ ) {
+  for ( byte i = 0; i < BUCKET_DEPTH-1; i++ ) {
     if ( bitRead(tet, i) ) {
       byte row = floor(i / 4);
       byte col = i % 4;
 
-      bucket[(row+tetr_offsY)*28 + col+tetr_offsX] = tetr_color;
+      bucket[(row+tetr_offsY)*BUCKET_WIDTH + col+tetr_offsX] = tetr_color;
     }
   }
 
@@ -56,7 +56,7 @@ void throw_next() {
 void check_rows() {
   byte completed = 0;
 
-  for ( byte i = 0; i < 34; i++ ) {
+  for ( byte i = 0; i < BUCKET_DEPTH; i++ ) {
     if ( is_complete_row(i) ) {
       completed++;
 
@@ -80,11 +80,11 @@ void check_rows() {
 
       for ( int y = i + completed - 1; y >= 0; y-- ) {
         if ( y - completed < 0 ) {
-          for ( byte j = 0; j < 28; j++ )
+          for ( byte j = 0; j < BUCKET_WIDTH; j++ )
             bucket[y*28+j] = BLACK;
         }
         else {
-          for ( byte j = 0; j < 28; j++ )
+          for ( byte j = 0; j < BUCKET_WIDTH; j++ )
             bucket[y*28+j] = bucket[(y - completed)*28+j];
         }
       }
@@ -135,24 +135,24 @@ void check_rows() {
 
   // paint the new bucket
 
-  for ( byte row = 0; row < 34; row++ ) {
-    for ( byte col = 0; col < 28; col++ ) {
-      matrix.drawPixel(col + BUCKET_OFFS_X, row + BUCKET_OFFS_Y, bucket[row*10+col]);
+  for ( byte row = 0; row < BUCKET_DEPTH; row++ ) {
+    for ( byte col = 0; col < BUCKET_WIDTH; col++ ) {
+      matrix.drawPixel(col + BUCKET_OFFS_X, row + BUCKET_OFFS_Y, bucket[row*BUCKET_WIDTH+col]);
     }
   }
 }
 
 bool is_complete_row ( byte row ) {
   return ( 
-    bucket[row*28]   > 0 &&
-    bucket[row*28+1] > 0 &&
-    bucket[row*28+2] > 0 &&
-    bucket[row*28+3] > 0 &&
-    bucket[row*28+4] > 0 &&
-    bucket[row*28+5] > 0 &&
-    bucket[row*28+6] > 0 &&
-    bucket[row*28+7] > 0 &&
-    bucket[row*28+8] > 0 &&
-    bucket[row*28+9] > 0
+    bucket[row*BUCKET_WIDTH]   > 0 &&
+    bucket[row*BUCKET_WIDTH+1] > 0 &&
+    bucket[row*BUCKET_WIDTH+2] > 0 &&
+    bucket[row*BUCKET_WIDTH+3] > 0 &&
+    bucket[row*BUCKET_WIDTH+4] > 0 &&
+    bucket[row*BUCKET_WIDTH+5] > 0 &&
+    bucket[row*BUCKET_WIDTH+6] > 0 &&
+    bucket[row*BUCKET_WIDTH+7] > 0 &&
+    bucket[row*BUCKET_WIDTH+8] > 0 &&
+    bucket[row*BUCKET_WIDTH+9] > 0
   );
 }
