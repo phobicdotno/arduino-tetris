@@ -1,12 +1,9 @@
 /**
- * LX' Tetris
+ * PhobicTris
  * 
- * for Arduino/Genuino Uno and a 32x32 LED matrix panel like
- * http://adafru.it/1484
+ * for Arduino Mega 1280 and a 64x32 LED matrix panel
  * 
- * four buttons are added using a resistor ladder and analog pin A5
- * 
- * latest version and documentation here:
+ * Modified version of RomanSixty's version:
  * https://github.com/RomanSixty/arduino-tetris
  */
 
@@ -52,7 +49,7 @@ RGBmatrixPanel matrix(A, B, C, D, CLK, LAT, OE, false, 64);
 #define BUCKET_DEPTH 34
 #define BUCKET_WIDTH 28
 
-uint16_t bucket[BUCKET_DEPTH*BUCKET_WIDTH]; // Size of bucket - 952
+uint16_t bucket[BUCKET_DEPTH*BUCKET_WIDTH]; // Size of bucket: 952
 
 unsigned long last_interaction =    0; // when was the last button pressed? 
 unsigned long next_tick        =    0; // when will the next automatic step happen?
