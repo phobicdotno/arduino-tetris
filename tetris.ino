@@ -8,6 +8,13 @@
  */
 
 #include <RGBmatrixPanel.h>
+#include <BobaBlox.h>
+
+// Joystick input
+Button joyUp(5);
+Button joyRight(6);
+Button joyDown(7);
+Button joyLeft(8);
 
 #define CLK 11
 #define OE  9
