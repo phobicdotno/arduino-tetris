@@ -82,20 +82,12 @@ bool key_pressed = false;
  * set bits are the parts where a brick is solid
  * the four quartets represent the four directions a tetromino can rotate
  */
-const PROGMEM uint16_t TETROMINOES[32] = {
+const PROGMEM uint16_t TETROMINOES[36] = {
   // X
   // X
   // X
   // X
   0b0000000011110000, 0b0100010001000100, 0b0000000011110000, 0b0100010001000100,
-
-  // TESTING add of Tetrominoes
-  // XXXX
-  // XXXX
-  // XXXX
-  // XXXX
-  //0b1111111111111111, 0b1111100110011111, 0b1010101010101010, 0b0101010101010101,
-  65535, 63903, 43690, 21845,
 
   // XX
   // XX
@@ -127,7 +119,22 @@ const PROGMEM uint16_t TETROMINOES[32] = {
   //  X
   // XXX
   //0b0000000011100100, 0b0000010001100100, 0b0000010011100000, 0b0000010011000100
-  228, 1124, 1248, 1220
+  228, 1124, 1248, 1220,
+
+    // TESTING add of Tetrominoes
+  // XXXX
+  // XXXX
+  // XXXX
+  // XXXX
+  //0b1111111111111111, 0b1111100110011111, 0b1010101010101010, 0b0101010101010101,
+  65535, 63903, 43690, 21845,
+
+  // TESTING add of Tetrominoes
+  // XX
+  // XX
+  // XX
+  // XX
+  0b1100110011001100, 0b0000000011111111, 0b1100110011001100, 0b0000000011111111
 };
 
 const unsigned char PROGMEM phobic_bitmap[] = {
